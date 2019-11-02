@@ -33,3 +33,86 @@ main {
 
 
 /* VIDEO */
+.videoWrapper{
+  width: 700px;
+  height: auto;
+  position:relative;
+}
+
+.videoScene{
+  width: 100%;
+  height: auto;
+  object-fit: inherit;
+}
+
+.videoWrapper:hover .videoControls{
+  opacity: 0.9;
+}
+
+.videoControls {
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  width: 100%;
+  background: black;
+  height: 50px;
+  opacity: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.videoBarWrapper{
+  height: 4px;
+  width: 100%;
+  display: flex;
+  flex:wrap;
+}
+
+.videoBar {
+  margin:auto;
+  background: #8d8a89;
+  width: 100%;
+  -webkit-appearance: none;
+  height: 4px;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.videoBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #21BEDA;
+  /* box-shadow: -100px 0 0 100px #EB3E4A; */
+  cursor: pointer;  
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      -webkit-appearance: none;
+      color: #13bba4;
+      margin-top: -1px;
+    }
+
+
+.videoMenu {
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.videoButton {
+  height: 30px;
+  line-height: 30px;
+  width: 30px;
+  text-align: center;
+  border: inherit;
+  background: inherit;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
