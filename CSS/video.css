@@ -163,11 +163,17 @@ main {
   display: none;
 }
 
+
+
+
 .videoMenu {
   width: 100%;
   padding-left: 7px;
-  background: black;
-  line-height: 50px;
+  padding-right: 7px;
+  background: rgba(0,0,0,0.7);
+  height: 50px;
+  display: flex;
+  align-items: center;
 }
 
 .videoButton {
@@ -176,8 +182,23 @@ main {
   width: 30px;
   text-align: center;
   border: inherit;
-  background: inherit;
+  background: transparent;
   color: white;
   cursor: pointer;
   font-size: 16px;
 }
+
+.wrapperVideoElement{
+  padding: 0 2.5px 0 2.5px;
+}
+
+.wrapperVideoElement:last-child {
+  margin-left: auto;
+}
+
+.videoTime {
+  color: white;
+  margin-left: 5px;
+  font-size: 13px;
+}
+
