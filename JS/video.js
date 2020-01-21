@@ -56,9 +56,7 @@ window.onload = function () {
         if (document.fullscreenElement) {
             fullScreenButtonOn.style.display = "none";
             fullScreenButtonOff.style.display = "block";
-            videoControls.style.bottom = "0px";
         } else {
-            videoControls.style.bottom = "5px";
             fullScreenButtonOn.style.display = "block";
             fullScreenButtonOff.style.display = "none";
         }  
