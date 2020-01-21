@@ -28,13 +28,12 @@ main {
 
 
 
-
-
 /* VIDEO */
 .videoWrapper{
   width: 700px;
   height: auto;
   position:relative;
+  padding:-5px;
 }
 
 .videoScene{
@@ -166,6 +165,7 @@ main {
 
 
 
+
 .videoMenu {
   width: 100%;
   padding-left: 7px;
@@ -202,6 +202,11 @@ main {
   font-size: 13px;
 }
 
-.pause {
+.hide {
   display:none;
 }
+
+video::-webkit-media-controls-enclosure {
+  display:none !important;
+}
+

@@ -8,6 +8,10 @@ window.onload = function () {
     const video = document.querySelector('#videoDanceAtBarcelona #video');
     const playButton = document.querySelector('#videoDanceAtBarcelona #play');
     const pauseButton = document.querySelector('#videoDanceAtBarcelona #pause');
+    const fullScreenButtonOn = document.querySelector('#videoDanceAtBarcelona #fullScreenOn');
+    const fullScreenButtonOff = document.querySelector('#videoDanceAtBarcelona #fullScreenOff');
+    const videoWrapper = document.querySelector('#videoWrapper');
+    const videoControls = document.querySelector('.videoControls');
    
     playButton.addEventListener("click", e => {
         if (video.paused) {
@@ -24,4 +28,48 @@ window.onload = function () {
             pauseButton.style.display = "none";
         }
     });
+
+    fullScreenButtonOn.addEventListener("click", function () {
+        if (video.requestFullscreen) {
+            videoWrapper.requestFullscreen();
+        } else if (video.mozRequestFullScreen) {
+            videoWrapper.mozRequestFullScreen(); // Firefox
+        } else if (video.webkitRequestFullscreen) {
+            videoWrapper.webkitRequestFullscreen(); // Chrome and Safari
+        } else {
+        }
+    });
+
+    fullScreenButtonOff.addEventListener("click", function() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }   
+    });
+   
+    document.addEventListener("fullscreenchange", function (e) {
+        if (document.fullscreenElement) {
+            fullScreenButtonOn.style.display = "none";
+            fullScreenButtonOff.style.display = "block";
+            videoControls.style.bottom = "0px";
+        } else {
+            videoControls.style.bottom = "5px";
+            fullScreenButtonOn.style.display = "block";
+            fullScreenButtonOff.style.display = "none";
+        }  
+    });
+
+
+    window.onkeydown = checkKey;
+    function checkKey(e) {
+        e = e || window.event;
+        if (e.keyCode == 27) { // esc
+            // videoControls.style.bottom = "5px";
+        }
+    }
 }
