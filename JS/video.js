@@ -3,7 +3,7 @@ window.onload = function () {
     const inputRange = document.querySelector('#videoDanceAtBarcelona .videoBar');
     inputRange.addEventListener('input', function () {
         inputRange.style.setProperty('--val', +inputRange.value)
-    }, false);
+    });
 
     const video = document.querySelector('#videoDanceAtBarcelona #video');
     const playButton = document.querySelector('#videoDanceAtBarcelona #play');
@@ -11,7 +11,8 @@ window.onload = function () {
     const fullScreenButtonOn = document.querySelector('#videoDanceAtBarcelona #fullScreenOn');
     const fullScreenButtonOff = document.querySelector('#videoDanceAtBarcelona #fullScreenOff');
     const videoWrapper = document.querySelector('#videoWrapper');
-    const videoControls = document.querySelector('.videoControls');
+    const seekBar = document.querySelector('#seekBar');
+    const videoTime = document.querySelector('.videoTime');
    
     playButton.addEventListener("click", e => {
         if (video.paused) {
@@ -61,6 +62,42 @@ window.onload = function () {
             fullScreenButtonOff.style.display = "none";
         }  
     });
+
+    seekBar.addEventListener("change", function () {
+        let time = video.duration * (seekBar.value / 100);
+        video.currentTime = time;
+        inputRange.style.setProperty('--val', +inputRange.value)
+        videoTime.innerHTML = timeInHours(video.currentTime) + " / " + timeInHours(video.duration)
+    });
+
+
+    video.addEventListener("timeupdate", function () {
+        let value = (100 / video.duration) * video.currentTime;
+        seekBar.value = value;
+        inputRange.style.setProperty('--val', +inputRange.value)
+        videoTime.innerHTML = timeInHours(video.currentTime) + " / " + timeInHours(video.duration)
+        if (video.currentTime == video.duration) {
+            playButton.style.display = "block";
+            pauseButton.style.display = "none";
+        }
+            
+    });
+
+    function timeInHours(timeInSeconds) {
+        let seconds = Math.floor(+timeInSeconds.toFixed())
+        let minutes = Math.floor(seconds / 60);
+        let hours = Math.floor(seconds / 3600);
+
+        seconds = seconds == 60 ? 0 : seconds;
+        minutes = minutes == 60 ? 0 : minutes;
+
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        return hours + ":" + minutes + ":" + seconds
+    }
+
 
 
     window.onkeydown = checkKey;
