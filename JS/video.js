@@ -1,18 +1,18 @@
 window.onload = function () {
 
     const inputRange = document.querySelector('#videoDanceAtBarcelona .videoBar');
+    const video = document.querySelector('#videoDanceAtBarcelona .video');
+    const playButton = document.querySelector('#videoDanceAtBarcelona .play');
+    const pauseButton = document.querySelector('#videoDanceAtBarcelona .pause');
+    const fullScreenButtonOn = document.querySelector('#videoDanceAtBarcelona .fullScreenOn');
+    const fullScreenButtonOff = document.querySelector('#videoDanceAtBarcelona .fullScreenOff');
+    const videoWrapper = document.querySelector('#videoDanceAtBarcelona .videoWrapper');
+    const seekBar = document.querySelector('#videoDanceAtBarcelona .seekBar');
+    const videoTime = document.querySelector('#videoDanceAtBarcelona .videoTime');
+    
     inputRange.addEventListener('input', function () {
         inputRange.style.setProperty('--val', +inputRange.value)
     });
-
-    const video = document.querySelector('#videoDanceAtBarcelona #video');
-    const playButton = document.querySelector('#videoDanceAtBarcelona #play');
-    const pauseButton = document.querySelector('#videoDanceAtBarcelona #pause');
-    const fullScreenButtonOn = document.querySelector('#videoDanceAtBarcelona #fullScreenOn');
-    const fullScreenButtonOff = document.querySelector('#videoDanceAtBarcelona #fullScreenOff');
-    const videoWrapper = document.querySelector('#videoWrapper');
-    const seekBar = document.querySelector('#seekBar');
-    const videoTime = document.querySelector('.videoTime');
    
     playButton.addEventListener("click", e => {
         if (video.paused) {
@@ -97,8 +97,6 @@ window.onload = function () {
 
         return hours + ":" + minutes + ":" + seconds
     }
-
-
 
     window.onkeydown = checkKey;
     function checkKey(e) {

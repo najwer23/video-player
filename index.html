@@ -20,30 +20,30 @@
         <h1>Video player</h1>
 
         <div id="videoDanceAtBarcelona" class="videoContainer">
-            <div class="videoWrapper" id="videoWrapper">
-                <video id="video" class="videoScene" >
+            <div class="videoWrapper">
+                <video class="video videoScene" >
                     <source src="Video/dance.mp4" type="video/mp4">
                     <p>Your browser doesn't support HTML5 video</p>
                 </video>
                 <div class="videoControls">
                     <div class="videoBarWrapper">
-                        <input id="seekBar" class="videoBar" type="range" value="0">
+                        <input class="seekBar videoBar" type="range" value="0">
                     </div>
                     <div class="videoMenu">
                         <div class="wrapperVideoElement">
-                            <button id="play" class="videoButton"><i class="fas fa-play"></i></button>
-                            <button id="pause" class="videoButton hide"><i class="fas fa-pause"></i></button>
+                            <button class="play videoButton"><i class="fas fa-play"></i></button>
+                            <button class="pause videoButton hide"><i class="fas fa-pause"></i></button>
                         </div>
                         <div class="wrapperVideoElement">
-                            <button class="videoButton"><i class="fas fa-volume-up"></i></button>
-                            <!-- <button class="videoButton"><i class="fas fa-volume-off"></i></button> -->
+                            <button class="soundOn videoButton"><i class="fas fa-volume-up"></i></button>
+                            <button class="soundOff videoButton hide"><i class="fas fa-volume-off"></i></button>
                         </div>
                         <div class="wrapperVideoElement">
                             <div class="videoTime">00:00:00 / 00:00:00</div>
                         </div>
                         <div class="wrapperVideoElement">
-                            <button id="fullScreenOn" class="videoButton"><i class="fas fa-expand"></i></button>
-                            <button id="fullScreenOff" class="videoButton hide"><i class="fas fa-compress"></i></button>
+                            <button class="fullScreenOn videoButton"><i class="fas fa-expand"></i></button>
+                            <button class="fullScreenOff videoButton hide"><i class="fas fa-compress"></i></button>
                         </div>
                     </div>
                 </div>
