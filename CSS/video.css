@@ -45,6 +45,12 @@ main {
   justify-content: center;
 }
 
+@media (max-width: 700px) {
+  .videoWrapper {
+    width: 300px;
+  }
+}
+
 .videoWrapper:hover .videoControls{
   opacity: 1;
 }
