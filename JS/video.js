@@ -9,9 +9,27 @@ window.onload = function () {
     const videoWrapper = document.querySelector('#videoDanceAtBarcelona .videoWrapper');
     const seekBar = document.querySelector('#videoDanceAtBarcelona .seekBar');
     const videoTime = document.querySelector('#videoDanceAtBarcelona .videoTime');
+    const soundOn = document.querySelector('#videoDanceAtBarcelona .soundOn');
+    const soundOff = document.querySelector('#videoDanceAtBarcelona .soundOff');
     
     inputRange.addEventListener('input', function () {
         inputRange.style.setProperty('--val', +inputRange.value)
+    });
+
+    soundOn.addEventListener("click", function () {
+        if (!video.muted) {
+            video.muted = true;
+            soundOn.style.display = "none";
+            soundOff.style.display = "block";
+        }
+    });
+
+    soundOff.addEventListener("click", function () {
+        if (video.muted) {
+            soundOn.style.display = "block";
+            soundOff.style.display = "none";
+            video.muted = false;
+        }
     });
    
     playButton.addEventListener("click", e => {
@@ -53,7 +71,7 @@ window.onload = function () {
         }   
     });
    
-    document.addEventListener("fullscreenchange", function (e) {
+    document.addEventListener("fullscreenchange", function () {
         if (document.fullscreenElement) {
             fullScreenButtonOn.style.display = "none";
             fullScreenButtonOff.style.display = "block";
